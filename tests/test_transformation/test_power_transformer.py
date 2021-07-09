@@ -60,13 +60,13 @@ def test_non_fitted_error(df_vartypes):
         transformer = PowerTransformer()
         transformer.transform(df_vartypes)
 
-
+        
 _exp_ls = [0.001, 0.1, 2, 3, 4, 10]
-
 
 @pytest.mark.parametrize("exp_base", _exp_ls)
 def test_inverse_transform_exp_no_default(exp_base, df_vartypes):
     transformer = PowerTransformer(exp=exp_base)
+
     Xt = transformer.fit_transform(df_vartypes)
     X = transformer.inverse_transform(Xt)
 
